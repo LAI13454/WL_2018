@@ -13,7 +13,7 @@ class RUN:
 		right = 0
 		l1 = list(range(12))
 		del l1[-1]
-		print(l1)
+		#print(l1)
 		for i in l1:
 			if((not gray[i]) and (gray[i+1])):
 				print(i+1)
@@ -31,3 +31,4 @@ class RUN:
 		out = self.KP * dif + self.KD * (dif - self.dif_last)
 		self.dif_last = dif
 		return out
+        
