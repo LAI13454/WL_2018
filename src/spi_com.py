@@ -52,8 +52,8 @@ class SPI_COM:
         temp = ((num[4]<<8)|num[5])&0x0fff
         for i in range(12):
             if temp & (0x01<<i):
-                val.append(0)
-            else:
                 val.append(1)
+            else:
+                val.append(0)
         #val.reverse()
         return val
