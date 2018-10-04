@@ -12,39 +12,39 @@ class SPI_COM:
         self.spi.xfer([0xaa,0x11,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
     def steer_2(self,val):
         self.spi.xfer([0xaa,0x12,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_3(self,val):
+    def steer_turn_1(self,val):
         self.spi.xfer([0xaa,0x13,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_4(self,val):
+    def steer_3(self,val):
         self.spi.xfer([0xaa,0x14,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_5(self,val):
+    def steer_4(self,val):
         self.spi.xfer([0xaa,0x15,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_6(self,val):
+    def steer_5(self,val):
         self.spi.xfer([0xaa,0x16,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_7(self,val):
+    def steer_6(self,val):
         self.spi.xfer([0xaa,0x17,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
-    def steer_8(self,val):
+    def steer_turn_2(self,val):
         self.spi.xfer([0xaa,0x18,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
     def steer_turn(self,val):
         if val <= 0:
             #Left Turn
             if val <= -500:
-                self.steer_1(-500) #left
+                self.steer_turn_1(-500) #left
             else:
-                self.steer_1(val)
+                self.steer_turn_1(val)
             if val <= -300:
-                self.steer_2(-300) #right
+                self.steer_turn_2(-300) #right
             else:
-                self.steer_2(val)
+                self.steer_turn_2(val)
         else:
             #Right Turn
             if val > 300:
-                self.steer_1(300)
+                self.steer_turn_1(300)
             else:
-                self.steer_1(val)
+                self.steer_turn_1(val)
             if val > 500:
-                self.steer_2(500)
+                self.steer_turn_2(500)
             else:
-                self.steer_2(val)
+                self.steer_turn_2(val)
 
     def gray(self):
         val = []

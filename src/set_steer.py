@@ -2,6 +2,8 @@ import sys
 from spi_com import SPI_COM
 spi_com = SPI_COM()
 if len(sys.argv) == 3:
+    if sys.argv[1] == '0':
+        spi_com.steer_turn(int(sys.argv[2]))
     if sys.argv[1] == '1':
         spi_com.steer_1(int(sys.argv[2]))
     if sys.argv[1] == '2':
