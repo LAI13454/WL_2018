@@ -7,7 +7,7 @@ class RUN:
         self.KP = setting["PID_turn"]["P"]
         self.KI = setting["PID_turn"]["I"]
         self.KD = setting["PID_turn"]["D"]
-        print("PID:",self.KP,self.KI,self.KD)
+        #print("PID:",self.KP,self.KI,self.KD)
     def gray_dif(self,gray):
         left = 0
         right = 0
@@ -26,9 +26,17 @@ class RUN:
                 #print(i+1)
                 right = i+1
                 break
+        print(left,right)
+        if left == 0:
+            left = right
+            #print("触发L")
+        if right == 0:
+            right = left
+            #print("触发R")
+        #print("偏移：",left-right)
         return(left - right)
     def turn_pid(self,dif):
         out = self.KP * dif + self.KD * (dif - self.dif_last)
-        print("PO:",self.KP * dif,"DO:",self.KD * (dif - self.dif_last))
+        #print("PO:",self.KP * dif,"DO:",self.KD * (dif - self.dif_last))
         self.dif_last = dif
         return out

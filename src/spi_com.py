@@ -6,8 +6,12 @@ class SPI_COM:
         self.spi.max_speed_hz = 50000 
     def motor_left(self,val):
         self.spi.xfer([0xaa,0x01,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
+        #print(val)
     def motor_right(self,val):
         self.spi.xfer([0xaa,0x02,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
+    def motor(self,val):
+        self.motor_left(val)
+        self.motor_right(val)
     def steer_1(self,val):
         self.spi.xfer([0xaa,0x11,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
     def steer_2(self,val):
