@@ -61,3 +61,15 @@ class SPI_COM:
                 val.append(0)
         #val.reverse()
         return val
+    def gray_two(self):
+        val = []
+        num = self.spi.xfer([0xaa,0x22,0x00,0x00,0xff,0xff,0x55])
+        temp = num[4]
+        for i in range(8):
+            if temp & (0x01<<i):
+                val.append(1)
+            else:
+                val.append(0)
+        val.reverse()
+        return val
+

@@ -26,7 +26,7 @@ class RUN:
                 #print(i+1)
                 right = i+1
                 break
-        print(left,right)
+        #print(left,right)
         if left == 0:
             left = right
             #print("触发L")
