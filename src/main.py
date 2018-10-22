@@ -3,6 +3,7 @@
 from spi_com import SPI_COM
 from oled_display import OLED
 from run import RUN
+from steer_fun import STEER_FUN
 import threading
 import time
 import json
@@ -42,6 +43,8 @@ def run_fun():
 spi_com = SPI_COM()
 oled = OLED()
 run = RUN()
+steer_fun = STEER_FUN()
+steer_fun.steer_posture_init()
 oled_thread = threading.Thread(target=oled.display)
 oled_thread.start()
 run_thread = threading.Thread(target=run_fun)
