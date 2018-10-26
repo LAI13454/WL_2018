@@ -64,8 +64,8 @@ class SPI_COM:
     def gray_two(self):
         val = []
         num = self.spi.xfer([0xaa,0x22,0x00,0x00,0xff,0xff,0x55])
-        temp = num[4]
-        for i in range(8):
+        temp = ((num[4]<<8)|num[5])&0x0fff
+        for i in range(12):
             if temp & (0x01<<i):
                 val.append(1)
             else:

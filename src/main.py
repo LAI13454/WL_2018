@@ -72,7 +72,9 @@ while True:
     else:
         pass
     if catch_goods_place_flag == True:
-        time.sleep(5)
-        catch_goods_place_flag = False
+        steer_fun.steer_set_val_2(550,10)
+        steer_fun.steer_set_val_4(-350,10)
+        steer_fun.steer_set_val_1(-120,10)
+        steer_fun.steer_set_val_3(-1000,10)
     time.sleep(0.02)
 
