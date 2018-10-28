@@ -16,7 +16,23 @@ while True:
     except ValueError:
         print("请重试")
         continue
-    if(temp == 1):
+    if(temp == 0):
+        for i in range(1,7):
+            if(i == 1):
+                str_info = steer_fun.steer_get_val_1()
+            elif(i == 2):
+                str_info = steer_fun.steer_get_val_2()
+            elif(i == 3):
+                str_info = steer_fun.steer_get_val_3()
+            elif(i == 4):
+                str_info = steer_fun.steer_get_val_4()
+            elif(i == 5):
+                str_info = steer_fun.steer_get_val_5()
+            elif(i == 6):
+                str_info = steer_fun.steer_get_val_6()
+            print(str(i)+"的当前值:"+str(str_info))
+
+    elif(temp == 1):
         str_info = steer_fun.steer_get_val_1()
     elif(temp == 2):
         str_info = steer_fun.steer_get_val_2()

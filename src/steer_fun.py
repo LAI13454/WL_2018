@@ -19,7 +19,9 @@ class STEER_FUN:
         self.spi_com.steer_3(self.steer_val_3)		
         self.spi_com.steer_4(self.steer_val_4)		
         self.spi_com.steer_5(self.steer_val_5)		
-        self.spi_com.steer_6(self.steer_val_6)	
+        self.spi_com.steer_6(self.steer_val_6)
+    def steer_set_two_val(self,num_1,val_1,num_2,val_2,time_val):
+        pass
     def steer_set_val_1(self,val,time_val):
         if val < self.steer_val_1:
             l = list(range(self.steer_val_1,val,-10))
