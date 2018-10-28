@@ -20,4 +20,10 @@ if len(sys.argv) == 3:
         spi_com.steer_7(int(sys.argv[2]))
     if sys.argv[1] == '8':
         spi_com.steer_8(int(sys.argv[2]))
+    if sys.argv[1] == '10':
+        spi_com.steer_turn_1(int(sys.argv[2]))
+    if sys.argv[1] == '11':
+        spi_com.steer_turn_2(int(sys.argv[2]))
+
+
 

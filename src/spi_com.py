@@ -5,6 +5,7 @@ class SPI_COM:
         self.spi.open(0,0)
         self.spi.max_speed_hz = 50000 
     def motor_left(self,val):
+        #print(val)
         self.spi.xfer([0xaa,0x01,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
         #print(val)
     def motor_right(self,val):
@@ -29,24 +30,25 @@ class SPI_COM:
     def steer_turn_2(self,val):
         self.spi.xfer([0xaa,0x18,(val>>8)&0xff,val&0xff,0x00,0x00,0x55])
     def steer_turn(self,val):
+        val = val - 60
         if val <= 0:
             #Left Turn
-            if val <= -500:
-                self.steer_turn_1(-500) #left
+            if val <= -650:
+                self.steer_turn_1(-650) #left
             else:
                 self.steer_turn_1(val)
-            if val <= -300:
-                self.steer_turn_2(-300) #right
+            if val <= -650:
+                self.steer_turn_2(-650) #right
             else:
                 self.steer_turn_2(val)
         else:
             #Right Turn
-            if val > 300:
-                self.steer_turn_1(300)
+            if val > 550:
+                self.steer_turn_1(550)
             else:
                 self.steer_turn_1(val)
-            if val > 500:
-                self.steer_turn_2(500)
+            if val > 550:
+                self.steer_turn_2(550)
             else:
                 self.steer_turn_2(val)
 

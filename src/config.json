@@ -6,7 +6,8 @@
 	},
 	"Speed":{
 		"Set":500,
-		"Ratio":0.8
+		"Ratio":0.8,
+		"Speed_L":200
 	},
 	"Steer":{
 		"R1":-700,
